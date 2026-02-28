@@ -1,0 +1,193 @@
+version: 2
+
+models:
+  - name: fct_trips
+    description: 'Fact table containing taxi trips with one row per trip'
+    columns:
+      - name: trip_key
+        description: 'Surrogate key for the trip'
+        tests:
+          - unique
+          - not_null
+      
+      - name: pickup_date_key
+        description: 'Foreign key to dim_date for pickup'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      
+      - name: dropoff_date_key
+        description: 'Foreign key to dim_date for dropoff'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      
+      - name: service_type_key
+        description: 'Foreign key to dim_service_type'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_service_type')
+              field: service_type_key
+      
+      - name: vendor_key
+        description: 'Foreign key to dim_vendors'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_vendors')
+              field: vendor_key
+      
+      - name: pu_zone_key
+        description: 'Foreign key to dim_zones for pickup location'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_zones')
+              field: zone_key
+      
+      - name: do_zone_key
+        description: 'Foreign key to dim_zones for dropoff location'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_zones')
+              field: zone_key
+      
+      - name: payment_type_key
+        description: 'Foreign key to dim_payment_type'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_payment_type')
+              field: payment_type_key
+      
+      - name: passenger_count
+        description: 'Number of passengers'
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      
+      - name: trip_distance
+        description: 'Trip distance in miles'
+        tests:
+          - not_null
+      
+      - name: fare_amount
+        description: 'Fare amount'
+        tests:
+          - not_null
+      
+      - name: tip_amount
+        description: 'Tip amount'
+        tests:
+          - not_null
+      
+      - name: tolls_amount
+        description: 'Tolls amount'
+        tests:
+          - not_null
+      
+      - name: total_amount
+        description: 'Total amount'
+        tests:
+          - not_null
+      
+      - name: trip_time_minutes
+        description: 'Trip duration in minutes'
+        tests:
+          - not_null
+      
+      - name: source_month
+        description: 'Source month in YYYY-MM format'
+        tests:
+          - not_null
+      
+      - name: service_type
+        description: 'Type of taxi service'
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['yellow', 'green']
+              
+  - name: dim_date
+    description: 'Date dimension'
+    columns:
+      - name: date_key
+        description: 'Surrogate key in YYYYMMDD format'
+        tests:
+          - unique
+          - not_null
+      - name: date
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_zones
+    description: 'Zone dimension with HASH partitioning'
+    columns:
+      - name: zone_key
+        description: 'Surrogate key'
+        tests:
+          - unique
+          - not_null
+      - name: borough
+        tests:
+          - not_null
+      - name: zone_name
+        tests:
+          - not_null
+
+  - name: dim_service_type
+    description: 'Service type dimension with LIST partitioning'
+    columns:
+      - name: service_type_key
+        tests:
+          - unique
+          - not_null
+      - name: service_type_code
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['yellow', 'green']
+
+  - name: dim_payment_type
+    description: 'Payment type dimension with LIST partitioning'
+    columns:
+      - name: payment_type_key
+        tests:
+          - unique
+          - not_null
+      - name: payment_type_name
+        tests:
+          - not_null
+      - name: partition_group
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['cash', 'card', 'flex', 'other/unknown']
+
+  - name: dim_vendors
+    description: 'Vendor dimension with LIST partitioning'
+    columns:
+      - name: vendor_key
+        tests:
+          - unique
+          - not_null
+      - name: vendor_id
+        tests:
+          - unique
+          - not_null
+      - name: vendor_name
+        tests:
+          - not_null
+      - name: partition_group
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['creative', 'curb', 'myle', 'helix', 'other']

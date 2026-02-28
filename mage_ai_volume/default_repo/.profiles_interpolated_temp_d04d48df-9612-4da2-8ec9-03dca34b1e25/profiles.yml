@@ -1,0 +1,12 @@
+scheduler_transformations:
+  outputs:
+    dev:
+      dbname: mage_db
+      host: postgres
+      pass: root
+      port: 5432
+      schema: analytics
+      threads: 4
+      type: postgres
+      user: root
+  target: dev

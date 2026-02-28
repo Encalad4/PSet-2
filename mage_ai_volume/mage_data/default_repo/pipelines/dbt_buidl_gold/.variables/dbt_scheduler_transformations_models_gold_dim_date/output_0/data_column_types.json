@@ -1,0 +1,1 @@
+{"date_key": "int64", "date": "datetime64[ns, UTC]", "year": "Decimal", "month": "Decimal", "month_name": "str", "day": "Decimal", "day_of_week": "Decimal", "day_name": "str", "year_month": "str"}

@@ -1,0 +1,8 @@
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: taxi_trips
+        description: "Contiene los datos crudos de los trips"
+      - name: taxi_zones
+        description: "Contiene los datos crudos de las zonas en donde se hacen los trips"

@@ -1,0 +1,21 @@
+sources:
+- description: Dataframes Mage upstream blocks
+  loader: mage
+  name: mage_scheduler_transformations
+  schema: analytics
+  tables:
+  - description: Dataframe for block `uploading_zones_to_db` of the `ingest_bronze`
+      mage pipeline.
+    identifier: mage_ingest_bronze_uploading_zones_to_db
+    meta:
+      block_uuid: uploading_zones_to_db
+      pipeline_uuid: ingest_bronze
+    name: ingest_bronze_uploading_zones_to_db
+  - description: Dataframe for block `uploading_trips_to_db` of the `ingest_bronze`
+      mage pipeline.
+    identifier: mage_ingest_bronze_uploading_trips_to_db
+    meta:
+      block_uuid: uploading_trips_to_db
+      pipeline_uuid: ingest_bronze
+    name: ingest_bronze_uploading_trips_to_db
+version: 2

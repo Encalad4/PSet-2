@@ -1,0 +1,310 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler_transformations
+    file_path: dbt/scheduler_transformations/models/gold/dim_payment_type.sql
+    file_source:
+      path: dbt/scheduler_transformations/models/gold/dim_payment_type.sql
+      project_path: dbt/scheduler_transformations
+  downstream_blocks:
+  - test_run_dim_payment_type
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_payment_type
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler_transformations/models/gold/dim_payment_type
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt:
+      command: test
+    dbt_profile_target: null
+    dbt_project_name: dbt/scheduler_transformations
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/test_run_dim_payment_type.yaml
+    use_raw_sql: false
+  downstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_date
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: test_run_dim_payment_type
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_payment_type
+  uuid: test_run_dim_payment_type
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler_transformations
+    file_path: dbt/scheduler_transformations/models/gold/dim_date.sql
+    file_source:
+      path: dbt/scheduler_transformations/models/gold/dim_date.sql
+      project_path: dbt/scheduler_transformations
+  downstream_blocks:
+  - test_run_dim_date
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_date
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - test_run_dim_payment_type
+  uuid: dbt/scheduler_transformations/models/gold/dim_date
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt:
+      command: test
+    dbt_profile_target: ''
+    dbt_project_name: dbt/scheduler_transformations
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/test_run_dim_date.yaml
+    use_raw_sql: false
+  downstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_service_type
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: test_run_dim_date
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_date
+  uuid: test_run_dim_date
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler_transformations
+    file_path: dbt/scheduler_transformations/models/gold/dim_service_type.sql
+    file_source:
+      path: dbt/scheduler_transformations/models/gold/dim_service_type.sql
+      project_path: dbt/scheduler_transformations
+  downstream_blocks:
+  - test_run_dim_service_type
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_service_type
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - test_run_dim_date
+  uuid: dbt/scheduler_transformations/models/gold/dim_service_type
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt:
+      command: test
+    dbt_profile_target: ''
+    dbt_project_name: dbt/scheduler_transformations
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/test_run_dim_service_type.yaml
+    use_raw_sql: false
+  downstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_zones
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: test_run_dim_service_type
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_service_type
+  uuid: test_run_dim_service_type
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler_transformations
+    file_path: dbt/scheduler_transformations/models/gold/dim_zones.sql
+    file_source:
+      path: dbt/scheduler_transformations/models/gold/dim_zones.sql
+      project_path: dbt/scheduler_transformations
+  downstream_blocks:
+  - test_run_dim_zones
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_zones
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - test_run_dim_service_type
+  uuid: dbt/scheduler_transformations/models/gold/dim_zones
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt:
+      command: test
+    dbt_profile_target: ''
+    dbt_project_name: dbt/scheduler_transformations
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/test_run_dim_zones.yaml
+    use_raw_sql: false
+  downstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_vendors
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: test_run_dim_zones
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_zones
+  uuid: test_run_dim_zones
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler_transformations
+    file_path: dbt/scheduler_transformations/models/gold/dim_vendors.sql
+    file_source:
+      path: dbt/scheduler_transformations/models/gold/dim_vendors.sql
+      project_path: dbt/scheduler_transformations
+  downstream_blocks:
+  - test_run_dim_vendors
+  - dbt/scheduler_transformations/models/gold/fct_trips
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_vendors
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - test_run_dim_zones
+  uuid: dbt/scheduler_transformations/models/gold/dim_vendors
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt:
+      command: test
+    dbt_profile_target: ''
+    dbt_project_name: dbt/scheduler_transformations
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/test_run_dim_vendors.yaml
+    use_raw_sql: false
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: test_run_dim_vendors
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_vendors
+  uuid: test_run_dim_vendors
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler_transformations
+    file_path: dbt/scheduler_transformations/models/gold/fct_trips.sql
+    file_source:
+      path: dbt/scheduler_transformations/models/gold/fct_trips.sql
+      project_path: dbt/scheduler_transformations
+    limit: 1000
+  downstream_blocks:
+  - test_run_fct_trips
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler_transformations/models/gold/fct_trips
+  retry_config: null
+  status: failed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/gold/dim_vendors
+  uuid: dbt/scheduler_transformations/models/gold/fct_trips
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt:
+      command: test
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/test_run_fct_trips.yaml
+    use_raw_sql: false
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: test_run_fct_trips
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/gold/fct_trips
+  uuid: test_run_fct_trips
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2026-02-21 23:10:21.203209+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: dbt_build_gold
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: dbt_build_gold
+variables_dir: /home/src/mage_data/default_repo
+widgets: []

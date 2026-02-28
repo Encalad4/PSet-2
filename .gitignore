@@ -1,0 +1,4 @@
+.env
+postgres_volume/*
+**/logs/**
+pgadmin_volume/*

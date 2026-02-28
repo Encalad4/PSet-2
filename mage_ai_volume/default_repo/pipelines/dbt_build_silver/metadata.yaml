@@ -1,0 +1,89 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler_transformations
+    file_path: dbt/scheduler_transformations/models/silver/int_taxi_trips_zones_joined.sql
+    file_source:
+      path: dbt/scheduler_transformations/models/silver/int_taxi_trips_zones_joined.sql
+      project_path: dbt/scheduler_transformations
+    limit: 1000
+  downstream_blocks:
+  - run_tests_int_taxi_trips_zones_joined
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler_transformations/models/silver/int_taxi_trips_zones_joined
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler_transformations/models/silver/int_taxi_trips_zones_joined
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt:
+      command: test
+    dbt_profile_target: ''
+    dbt_project_name: dbt/scheduler_transformations
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/run_tests_int_taxi_trips_zones_joined.yaml
+    use_raw_sql: false
+  downstream_blocks:
+  - start_dbt_build_gold
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: run_tests_int_taxi_trips_zones_joined
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/scheduler_transformations/models/silver/int_taxi_trips_zones_joined
+  uuid: run_tests_int_taxi_trips_zones_joined
+- all_upstream_blocks_executed: false
+  color: grey
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: start_dbt_build_gold
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - run_tests_int_taxi_trips_zones_joined
+  uuid: start_dbt_build_gold
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2026-02-21 15:54:25.227900+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: dbt_build_silver
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: dbt_build_silver
+variables_dir: /home/src/mage_data/default_repo
+widgets: []
