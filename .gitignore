@@ -1,4 +1,7 @@
 .env
 postgres_volume/*
 **/logs/**
+**/*.logs
+**/*.log
+**/*.parquet
 pgadmin_volume/*

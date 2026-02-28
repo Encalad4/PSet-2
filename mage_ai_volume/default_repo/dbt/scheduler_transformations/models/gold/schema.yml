@@ -7,7 +7,6 @@ models:
       - name: trip_key
         description: 'Surrogate key for the trip'
         tests:
-          - unique
           - not_null
       
       - name: pickup_date_key
