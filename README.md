@@ -512,7 +512,7 @@ models:
 ---
 
 ### tests
-
+![dbt tests for fct_trips](./evidence/test_fct_trips.png)
 
 ### Notebook answers
 To see the code, results and interpretation for each businness question, press [here](./queries.ipynb)
@@ -646,7 +646,7 @@ It is important to note that the backfill trigger runs only once when prompted. 
   - [X] Solo `.env.example` incluido en el repositorio
 
 ## Pipeline de Ingesta
-- [     ] Pipeline `ingest_bronze`:
+- [X] Pipeline `ingest_bronze`:
   - [X] Ejecución mensual configurada
   - [X] Idempotente (puede ejecutarse múltiples veces sin duplicar datos)
   - [X] Tabla de cobertura implementada para tracking de datos ingestados
@@ -675,7 +675,7 @@ It is important to note that the backfill trigger runs only once when prompted. 
   - [X] Partition pruning efectivo en dimensiones con HASH/LIST
 
 ## Validaciones y Análisis
-- [ ] `dbt test` ejecutado desde Mage y pasando exitosamente
+- [X] `dbt test` ejecutado desde Mage y pasando exitosamente
 - [X] Notebook con respuestas a **20 preguntas de negocio**:
   - [X] Consultas realizadas exclusivamente sobre esquema `gold.*`
   - [X] Respuestas validadas y documentadas
